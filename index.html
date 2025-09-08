@@ -8,26 +8,8 @@
   </style>
 </head>
 <body>
-  <!-- Optional: floating chat button inside iframe -->
-  <button id="openBotpress" style="position:fixed;bottom:20px;right:20px;z-index:9999;padding:12px 18px;border-radius:50px;background:#007bff;color:white;border:none;cursor:pointer;">
-    Chat with AI
-  </button>
-
-  <script>
-    document.getElementById("openBotpress").addEventListener("click", function() {
-      if (!window.botpressLoaded) {
-        var s1 = document.createElement("script");
-        s1.src = "https://cdn.botpress.cloud/webchat/v3.2/inject.js";
-        document.body.appendChild(s1);
-
-        var s2 = document.createElement("script");
-        s2.src = "https://files.bpcontent.cloud/2025/09/07/10/20250907104604-XARUI8AC.js";
-        s2.defer = true;
-        document.body.appendChild(s2);
-
-        window.botpressLoaded = true;
-      }
-    });
-  </script>
+  <!-- Directly load Botpress chat bubble -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/09/07/10/20250907104604-XARUI8AC.js" defer></script>
 </body>
 </html>
