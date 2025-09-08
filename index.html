@@ -4,11 +4,22 @@
   <meta charset="UTF-8">
   <title>Botpress AI Chat</title>
   <style>
-    body { margin:0; }
+    body { margin: 0; }
+    /* Optional: make iframe content responsive */
+    html, body, #chat { height: 100%; width: 100%; }
   </style>
 </head>
 <body>
-  <!-- Directly load Botpress chat bubble -->
+  <!-- Botpress webchat script -->
+  <script>
+    window.botpressWebChat = {
+      botId: "YOUR_BOT_ID_HERE", // replace with your Botpress bot ID
+      host: "https://cdn.botpress.cloud/webchat/v3.2/inject.js",
+      showWidget: true,       // auto-show chat bubble
+      enableConversationPreview: true, // optional
+      hideWidget: false
+    };
+  </script>
   <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/09/07/10/20250907104604-XARUI8AC.js" defer></script>
 </body>
