@@ -5,22 +5,33 @@
   <title>Botpress AI Chat</title>
   <style>
     body { margin: 0; }
-    /* Optional: make iframe content responsive */
-    html, body, #chat { height: 100%; width: 100%; }
   </style>
 </head>
 <body>
-  <!-- Botpress webchat script -->
+  <!-- Botpress config -->
   <script>
     window.botpressWebChat = {
       botId: "YOUR_BOT_ID_HERE", // replace with your Botpress bot ID
       host: "https://cdn.botpress.cloud/webchat/v3.2/inject.js",
-      showWidget: true,       // auto-show chat bubble
-      enableConversationPreview: true, // optional
-      hideWidget: false
+      hideWidget: false,
+      showWidget: true
     };
   </script>
+
+  <!-- Load Botpress scripts -->
   <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/09/07/10/20250907104604-XARUI8AC.js" defer></script>
+
+  <!-- Auto-open chat after scripts load -->
+  <script>
+    function waitForBotpress() {
+      if(window.botpressWebChat && window.botpressWebChat.open) {
+        window.botpressWebChat.open(); // open chat automatically
+      } else {
+        setTimeout(waitForBotpress, 500);
+      }
+    }
+    waitForBotpress();
+  </script>
 </body>
 </html>
